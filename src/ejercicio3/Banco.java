@@ -2,6 +2,7 @@ package ejercicio3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Banco {
@@ -38,7 +39,7 @@ public class Banco {
             return;
         }
 
-        cuentaOrigen.retirar(monto);
+        cuentaOrigen.retirar(monto, new Random().nextBoolean());
         cuentaDestino.depositar(monto);
 
         System.out.println("Transferencia realizada con éxito.");
@@ -51,7 +52,7 @@ public class Banco {
         if (tipoTransaccion == 1) {
             cuentaSeleccionada.depositar(monto);
         } else if (tipoTransaccion == 2) {
-            cuentaSeleccionada.retirar(monto);
+            cuentaSeleccionada.retirar(monto, new Random().nextBoolean());
         } else if (tipoTransaccion == 3){
             System.out.println("El saldo de la cuenta es: " + cuentaSeleccionada.getSaldo());
         } else {

@@ -11,7 +11,7 @@ public abstract class Cuenta {
 
     public abstract void depositar(double monto);
 
-    public abstract void retirar(double monto);
+    public abstract void retirar(double monto, boolean retiroEnCajeroDelBanco);
 
     public abstract void aplicarInteresMensual();
 

@@ -16,8 +16,12 @@ public class CuentaAhorro extends Cuenta {
     }
 
     @Override
-    public void retirar(double monto) {
+    public void retirar(double monto, boolean retiroEnCajeroDelBanco) {
         saldo -= monto;
+        if(retiroEnCajeroDelBanco) {
+            saldo -= 4500;
+            System.out.println("Se realizo cobro por retiro en cajero externo al banco.");
+        }
         System.out.println("Retiro de cuenta de ahorro realizado.");
     }
 
@@ -28,16 +32,17 @@ public class CuentaAhorro extends Cuenta {
     }
 
     private double calcularComisionDeposito(double monto) {
-        if (monto >= 500000 && monto < 2000000) {
-            return 3000 + (monto * 0.01);
+        if (monto < 500000) {
+            return 7000;
+        } else if (monto >= 500000 && monto < 2000000) {
+            return 5000 + (monto * 0.02);
         } else if (monto >= 2000000 && monto <= 10000000) {
-            return 2000 + (monto * 0.005);
-        } else if (monto > 10000000 && monto < 100000000) {
-            return monto * 0.018;
-        } else if (monto >= 100000000) {
-            return monto * 0.02;
+            return 4000 + (monto * 0.02);
+        } else if (monto > 10000000) {
+            return monto * 0.033;
         } else {
             return 0;
         }
     }
+
 }
