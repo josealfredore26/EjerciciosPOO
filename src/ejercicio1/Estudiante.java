@@ -8,13 +8,15 @@ public class Estudiante {
     private String documento;
     private String direccion;
     private String telefono;
+    private int semestreActual;
 
-    public Estudiante(String nombres, String apellidos, String documento, String direccion, String telefono) {
+    public Estudiante(String nombres, String apellidos, String documento, String direccion, String telefono, int semestreActual) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.documento = documento;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.semestreActual = semestreActual;
     }
 
     public String getNombres() {
@@ -35,6 +37,14 @@ public class Estudiante {
 
     public String getTelefono() {
         return telefono;
+    }
+
+    public int getSemestreActual() {
+        return semestreActual;
+    }
+
+    public void setSemestreActual(int semestreActual) {
+        this.semestreActual = semestreActual;
     }
 }
 
